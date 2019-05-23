@@ -14,6 +14,7 @@ class MasterViewController: UIViewController {
     var villes : [String : Ville] = [:]
     var zips : [String] = []
     var noms : [String] = []
+    var filteredTableNoms = [String]()
     
     let villeLoader = VilleLoader()
 
@@ -27,6 +28,7 @@ class MasterViewController: UIViewController {
                 let value = villeLoader.villesByCodePostal[key]!.self
                 zips.append(key)
                 noms.append(value.nom)
+                filteredTableNoms = noms
                 villes[key] = value
             }
         } catch {
@@ -38,14 +40,21 @@ class MasterViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         let tableViewCellSelected = (tableView.cellForRow(at: tableView.indexPathForSelectedRow!) as! VilleTableViewCell)
-        let ville = villes[tableViewCellSelected.codePostalLabel.text!]
+        tableViewCellSelected.codePostalLabel.alpha = 0
+        tableViewCellSelected.activityIndicator.alpha = 1
+        tableViewCellSelected.activityIndicator.startAnimating()
         
+        let ville = villes[tableViewCellSelected.codePostalLabel.text!]
         (segue.destination as! VilleDetailViewController).ville = ville.self
+        (segue.destination as! VilleDetailViewController).weather = WeatherService.weatherForVille(ville!).0!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "GoToDetailViewController", sender: self)
         self.tableView.deselectRow(at: indexPath, animated: true)
+        (tableView.cellForRow(at: indexPath) as! VilleTableViewCell).codePostalLabel.alpha = 1
+        (tableView.cellForRow(at: indexPath) as! VilleTableViewCell).activityIndicator.alpha = 0
+        (tableView.cellForRow(at: indexPath) as! VilleTableViewCell).activityIndicator.stopAnimating()
     }
 }
 

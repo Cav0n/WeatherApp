@@ -12,6 +12,7 @@ class VilleTableViewCell: UITableViewCell {
 
     @IBOutlet weak var villeLabel: UILabel!
     @IBOutlet weak var codePostalLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

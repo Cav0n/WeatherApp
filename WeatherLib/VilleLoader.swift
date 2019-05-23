@@ -33,8 +33,9 @@ public class VilleLoader {
             if let ville = Ville(fromCsvLine: line) {
                 if villesByCodePostal[ville.codePostal] != nil {
                     //print("duplicate code postal for \(ville.codePostal)")
-                }
+                } else {
                 villesByCodePostal[ville.codePostal] = ville
+                }
             } else {
                 throw VilleLoaderError.invalidLine(index: index + 1)
             }

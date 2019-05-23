@@ -12,6 +12,7 @@ import WeatherLib
 class VilleDetailViewController: UIViewController {
 
     var ville : Ville!
+    var weather : Weather!
     
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -20,7 +21,6 @@ class VilleDetailViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.title = ville?.nom
         
-        let weather = WeatherService.weatherForVille(ville).0!
         let weatherTemperatureInCelsius = String(format: "%.2f °C", (weather.currently.temperature - 32) / 1.8)
         temperatureLabel.text = weatherTemperatureInCelsius
         descriptionLabel.text = weather.currently.summary

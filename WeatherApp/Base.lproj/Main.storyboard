@@ -41,16 +41,23 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tpV-vF-QnR">
+                                                    <rect key="frame" x="264" y="12" width="20" height="20"/>
+                                                    <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="vsk-lf-WXL" firstAttribute="leading" secondItem="xi7-gX-0kN" secondAttribute="leading" constant="15" id="6ek-ne-1xR"/>
                                                 <constraint firstItem="vsk-lf-WXL" firstAttribute="centerY" secondItem="xi7-gX-0kN" secondAttribute="centerY" id="FjD-Ff-ptH"/>
+                                                <constraint firstItem="tpV-vF-QnR" firstAttribute="centerY" secondItem="xi7-gX-0kN" secondAttribute="centerY" id="Ges-uf-Q12"/>
                                                 <constraint firstAttribute="trailing" secondItem="GIw-72-IC8" secondAttribute="trailing" constant="20" id="GnC-TV-cIK"/>
                                                 <constraint firstItem="vsk-lf-WXL" firstAttribute="width" secondItem="xi7-gX-0kN" secondAttribute="width" id="Xml-6P-b3k"/>
                                                 <constraint firstItem="GIw-72-IC8" firstAttribute="centerY" secondItem="xi7-gX-0kN" secondAttribute="centerY" id="gPS-8G-a1P"/>
+                                                <constraint firstAttribute="trailing" secondItem="tpV-vF-QnR" secondAttribute="trailing" constant="36" id="vP2-BJ-1Y0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="activityIndicator" destination="tpV-vF-QnR" id="UE8-ft-kKc"/>
                                             <outlet property="codePostalLabel" destination="GIw-72-IC8" id="U0I-n6-fi7"/>
                                             <outlet property="villeLabel" destination="vsk-lf-WXL" id="iFb-Zz-hE4"/>
                                         </connections>
