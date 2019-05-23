@@ -2,16 +2,16 @@
 //  VilleTableViewCell.swift
 //  WeatherApp
 //
-//  Created by Florian Bernard on 22/05/2019.
+//  Created by Florian Bernard on 23/05/2019.
 //  Copyright © 2019 Openium. All rights reserved.
 //
 
 import UIKit
 
 class VilleTableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var zipCodeLabel: UILabel!
+
+    @IBOutlet weak var villeLabel: UILabel!
+    @IBOutlet weak var codePostalLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
