@@ -83,6 +83,8 @@
 		179C142A2296E26F00C4D06D /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		179C142C2296E39B00C4D06D /* VilleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VilleTableViewCell.swift; sourceTree = "<group>"; };
 		179C142E2296F52900C4D06D /* VilleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VilleDetailViewController.swift; sourceTree = "<group>"; };
+		179F677B22972A6700AAB3B0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		179F677C22972A6700AAB3B0 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		BA8BBE7B22102A0900E847EC /* WeatherLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WeatherLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA8BBE7E22102A0900E847EC /* WeatherLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeatherLib.h; sourceTree = "<group>"; };
 		BA8BBE7F22102A0900E847EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = BA8BBE7122102A0900E847EC;
 			productRefGroup = BA8BBE7C22102A0900E847EC /* Products */;
@@ -487,6 +490,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BAA319362293E14200E847EC /* Base */,
+				179F677B22972A6700AAB3B0 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -495,6 +499,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BAA3193B2293E14400E847EC /* Base */,
+				179F677C22972A6700AAB3B0 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -506,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -572,6 +578,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

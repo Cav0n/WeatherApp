@@ -12,6 +12,9 @@ import WeatherLib
 class MasterViewController: UIViewController {
     
     var villes : [String : Ville] = [:]
+    var zips : [String] = []
+    var noms : [String] = []
+    
     let villeLoader = VilleLoader()
 
     @IBOutlet weak var tableView: UITableView!
@@ -21,12 +24,14 @@ class MasterViewController: UIViewController {
         do{
             try villeLoader.loadVilles(path: Bundle.main.path(forResource: "villes", ofType: "csv")!)
             villeLoader.villesByCodePostal.keys.sorted().forEach { (key) in
-                villes[key] =  villeLoader.villesByCodePostal[key]!.self
+                let value = villeLoader.villesByCodePostal[key]!.self
+                zips.append(key)
+                noms.append(value.nom)
+                villes[key] = value
             }
         } catch {
             print(error)
         }
-        // Do any additional setup after loading the view.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,11 +57,21 @@ extension MasterViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VilleTableViewCell", for: indexPath)
         
-        let villeCodePostal = Array(villes.keys)[indexPath.row]
-        let villeNom = villes[villeCodePostal]?.nom
+        let villeCodePostal = zips[indexPath.row]
+        let villeNom =  villes[villeCodePostal]?.nom.capitalizingFirstLetter()
         
         (cell as! VilleTableViewCell).villeLabel.text = villeNom
         (cell as! VilleTableViewCell).codePostalLabel.text = villeCodePostal
         return cell
+    }
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).uppercased() + self.lowercased().dropFirst()
+    }
+    
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
     }
 }
