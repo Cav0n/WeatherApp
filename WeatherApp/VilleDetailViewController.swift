@@ -13,14 +13,16 @@ class VilleDetailViewController: UIViewController {
 
     var ville : Ville!
     
-    @IBOutlet weak var villeLabel: UILabel!
-    @IBOutlet weak var codePostalLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        villeLabel.text! = ville!.nom
-        codePostalLabel.text! = ville!.codePostal
-
+        self.navigationItem.title = ville?.nom
+        self.navigationItem.prompt = ville?.codePostal
+        
+        let weather = WeatherService.weatherForVille(ville).0!
+        let weatherTemperatureInCelsius = String(format: "%.2f °C", (weather.currently.temperature - 32) / 1.8)
+        temperatureLabel.text = weatherTemperatureInCelsius
         // Do any additional setup after loading the view.
     }
     

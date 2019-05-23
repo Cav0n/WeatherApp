@@ -35,7 +35,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIw-72-IC8">
-                                                    <rect key="frame" x="342" y="12" width="52" height="20.5"/>
+                                                    <rect key="frame" x="736" y="11.5" width="52" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -106,27 +106,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ville" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ed3-3Q-D2j">
-                                <rect key="frame" x="0.0" y="88" width="414" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".SFNSDisplay" family=".SF NS Display" pointSize="38"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YsM-31-n2s">
-                                <rect key="frame" x="159" y="139" width="96" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15.0 °C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9V-Y2-h3s">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Z9V-Y2-h3s" firstAttribute="leading" secondItem="yjV-wj-jzn" secondAttribute="leading" id="Ewp-Lr-PUE"/>
+                            <constraint firstItem="yjV-wj-jzn" firstAttribute="bottom" secondItem="Z9V-Y2-h3s" secondAttribute="bottom" id="bbx-2L-sAC"/>
+                            <constraint firstItem="yjV-wj-jzn" firstAttribute="trailing" secondItem="Z9V-Y2-h3s" secondAttribute="trailing" id="ggJ-Kl-cJH"/>
+                            <constraint firstItem="Z9V-Y2-h3s" firstAttribute="top" secondItem="yjV-wj-jzn" secondAttribute="top" id="yVU-qH-aRM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="yjV-wj-jzn"/>
                     </view>
                     <connections>
-                        <outlet property="codePostalLabel" destination="YsM-31-n2s" id="A1O-hU-XQ3"/>
-                        <outlet property="villeLabel" destination="Ed3-3Q-D2j" id="mNc-4C-ZsX"/>
+                        <outlet property="temperatureLabel" destination="Z9V-Y2-h3s" id="3Mg-PA-HPM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gBC-Wr-GcA" userLabel="First Responder" sceneMemberID="firstResponder"/>

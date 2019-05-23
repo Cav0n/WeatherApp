@@ -9,12 +9,12 @@
 import Foundation
 
 public struct WeatherCurrently: Codable {
-    let summary: String
-    let temperature: Double
+    public let summary: String
+    public let temperature: Double
 }
 
 public struct Weather: Codable {
-    let currently: WeatherCurrently
+    public let currently: WeatherCurrently
     
     init?(data: Data?) {
         guard let data = data else { return nil }

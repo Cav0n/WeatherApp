@@ -32,19 +32,15 @@ class MasterViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        
-        
         let tableViewCellSelected = (tableView.cellForRow(at: tableView.indexPathForSelectedRow!) as! VilleTableViewCell)
-        
         let ville = villes[tableViewCellSelected.codePostalLabel.text!]
         
         (segue.destination as! VilleDetailViewController).ville = ville.self
-        
-        segue.destination.title = ville?.nom
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "GoToDetailViewController", sender: self)
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
