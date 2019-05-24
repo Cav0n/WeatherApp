@@ -11,8 +11,7 @@ import WeatherLib
 
 class MasterViewController: UIViewController {
     
-    var zips : [String] = []
-    var noms : [String] = []
+    var villes : [Ville] = []
     
     let villeLoader = VilleLoader()
 
@@ -23,11 +22,9 @@ class MasterViewController: UIViewController {
         do{
             try villeLoader.loadVilles(path: Bundle.main.path(forResource: "villes", ofType: "csv")!)
             villeLoader.villesByCodePostal.sorted { $0.value.nom < $1.value.nom }.forEach { (arg0) in
-                let codepostal = arg0.key
-                let nom = arg0.value.nom.trimmingCharacters(in: .whitespacesAndNewlines)
-                if(nom.count > 0){
-                    zips.append(codepostal)
-                    noms.append(nom)
+                let ville = arg0.value
+                if(ville.nom.trimmingCharacters(in: .whitespacesAndNewlines).count > 0){
+                    villes.append(ville)
                 }
             }
         } catch {
@@ -36,11 +33,8 @@ class MasterViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let tableViewCellSelected = (tableView.cellForRow(at: tableView.indexPathForSelectedRow!) as! VilleTableViewCell)
-        tableViewCellSelected.codePostalLabel.alpha = 0
-        tableViewCellSelected.activityIndicator.alpha = 1
-        tableViewCellSelected.activityIndicator.startAnimating()
-        
+         let tableViewCellSelected = (tableView.cellForRow(at: tableView.indexPathForSelectedRow!) as! VilleTableViewCell)
+        loadingFeedbackOnSelectedVilleCell(activate: true, cell: tableViewCellSelected)
         let ville = villeLoader[tableViewCellSelected.codePostalLabel.text!]
         (segue.destination as! VilleDetailViewController).ville = ville.self
         (segue.destination as! VilleDetailViewController).weather = WeatherService.weatherForVille(ville!).0!
@@ -49,9 +43,19 @@ class MasterViewController: UIViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "GoToDetailViewController", sender: self)
         self.tableView.deselectRow(at: indexPath, animated: true)
-        (tableView.cellForRow(at: indexPath) as! VilleTableViewCell).codePostalLabel.alpha = 1
-        (tableView.cellForRow(at: indexPath) as! VilleTableViewCell).activityIndicator.alpha = 0
-        (tableView.cellForRow(at: indexPath) as! VilleTableViewCell).activityIndicator.stopAnimating()
+        loadingFeedbackOnSelectedVilleCell(activate: false, cell: tableView.cellForRow(at: indexPath) as! VilleTableViewCell)
+    }
+    
+    func loadingFeedbackOnSelectedVilleCell(activate: Bool, cell selectedCell: VilleTableViewCell){
+        if(activate){
+            selectedCell.codePostalLabel.alpha = 0
+            selectedCell.activityIndicator.alpha = 1
+            selectedCell.activityIndicator.startAnimating()
+        } else {
+            selectedCell.codePostalLabel.alpha = 1
+            selectedCell.activityIndicator.alpha = 0
+            selectedCell.activityIndicator.stopAnimating()
+        }
     }
 }
 
@@ -63,11 +67,10 @@ extension MasterViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "VilleTableViewCell", for: indexPath)
         
-        let codePostal = zips[indexPath.row]
-        let nom = noms[indexPath.row]
+        let ville = villes[indexPath.row]
         
-        (cell as! VilleTableViewCell).villeLabel.text =  nom.capitalizingFirstLetter()
-        (cell as! VilleTableViewCell).codePostalLabel.text = codePostal
+        (cell as! VilleTableViewCell).villeLabel.text =  ville.nom.capitalizingFirstLetter()
+        (cell as! VilleTableViewCell).codePostalLabel.text = ville.codePostal
         return cell
     }
 }
