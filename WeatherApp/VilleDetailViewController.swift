@@ -25,5 +25,22 @@ class VilleDetailViewController: UIViewController {
         temperatureLabel.text = weatherTemperatureInCelsius
         descriptionLabel.text = weather.currently.summary
     }
+}
 
+extension VilleDetailViewController : UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return weather.hourly.data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherDetailTableViewCell")
+        let data = weather.hourly.data[indexPath.row]
+        
+        (cell as! WeatherDetailTableViewCell).temperatureLabel.text = "\(String(format: "%.2f °C", (data.temperature - 32) / 1.8))"
+        (cell as! WeatherDetailTableViewCell).timeLabel.text = "\(timeStampToDateString(data.time, dateFormat: "d MMM HH'h'mm"))"
+        (cell as! WeatherDetailTableViewCell).descriptionLabel.text = data.summary
+        return cell!
+    }
+    
+    
 }

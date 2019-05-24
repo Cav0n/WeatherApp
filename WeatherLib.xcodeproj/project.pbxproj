@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		174E26F12298120F00DA18C3 /* WeatherDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174E26F02298120F00DA18C3 /* WeatherDetailTableViewCell.swift */; };
+		174E26F32298180D00DA18C3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174E26F22298180D00DA18C3 /* Utils.swift */; };
 		179C142B2296E26F00C4D06D /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179C142A2296E26F00C4D06D /* MasterViewController.swift */; };
 		179C142D2296E39B00C4D06D /* VilleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179C142C2296E39B00C4D06D /* VilleTableViewCell.swift */; };
 		179C142F2296F52900C4D06D /* VilleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179C142E2296F52900C4D06D /* VilleDetailViewController.swift */; };
@@ -80,6 +82,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		174E26F02298120F00DA18C3 /* WeatherDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailTableViewCell.swift; sourceTree = "<group>"; };
+		174E26F22298180D00DA18C3 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		179C142A2296E26F00C4D06D /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		179C142C2296E39B00C4D06D /* VilleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VilleTableViewCell.swift; sourceTree = "<group>"; };
 		179C142E2296F52900C4D06D /* VilleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VilleDetailViewController.swift; sourceTree = "<group>"; };
@@ -215,11 +219,13 @@
 				179C142A2296E26F00C4D06D /* MasterViewController.swift */,
 				179C142C2296E39B00C4D06D /* VilleTableViewCell.swift */,
 				179C142E2296F52900C4D06D /* VilleDetailViewController.swift */,
+				174E26F02298120F00DA18C3 /* WeatherDetailTableViewCell.swift */,
 				BAA319352293E14200E847EC /* Main.storyboard */,
 				BAA319382293E14400E847EC /* Assets.xcassets */,
 				BAA3193A2293E14400E847EC /* LaunchScreen.storyboard */,
 				BAA3193D2293E14400E847EC /* Info.plist */,
 				BAA319512293E41C00E847EC /* villes.csv */,
+				174E26F22298180D00DA18C3 /* Utils.swift */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -446,9 +452,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				179C142F2296F52900C4D06D /* VilleDetailViewController.swift in Sources */,
+				174E26F12298120F00DA18C3 /* WeatherDetailTableViewCell.swift in Sources */,
 				179C142B2296E26F00C4D06D /* MasterViewController.swift in Sources */,
 				BAA319322293E14200E847EC /* AppDelegate.swift in Sources */,
 				179C142D2296E39B00C4D06D /* VilleTableViewCell.swift in Sources */,
+				174E26F32298180D00DA18C3 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
