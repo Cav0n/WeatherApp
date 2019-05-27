@@ -11,25 +11,10 @@ import Foundation
 public struct WeatherCurrently: Codable {
     public let summary: String
     public let temperature: Double
-    public let icon: String
-}
-
-public struct WeatherHourly: Codable{
-    public let summary: String
-    public let icon: String
-    public let data: [WeatherData]
-}
-
-public struct WeatherData: Codable{
-    public let time: Double
-    public let summary: String
-    public let icon: String
-    public let temperature : Double
 }
 
 public struct Weather: Codable {
     public let currently: WeatherCurrently
-    public let hourly: WeatherHourly
     
     init?(data: Data?) {
         guard let data = data else { return nil }

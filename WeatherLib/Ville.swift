@@ -44,3 +44,13 @@ public extension Ville {
         self.longitude = longitude
     }
 }
+
+extension Ville : Comparable, Equatable{
+    public static func < (lhs: Ville, rhs: Ville) -> Bool {
+        return lhs.nom < rhs.nom
+    }
+    
+    public static func == (lhs: Ville, rhs: Ville) -> Bool {
+        return lhs.nom == rhs.nom
+    }
+}

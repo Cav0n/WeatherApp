@@ -16,6 +16,7 @@ public enum VilleLoaderError: Error {
 public class VilleLoader {
     
     public var villesByCodePostal = [String: Ville]()
+    public var villes : [Ville] = []
     
     public init() {}
     
@@ -33,9 +34,8 @@ public class VilleLoader {
             if let ville = Ville(fromCsvLine: line) {
                 if villesByCodePostal[ville.codePostal] != nil {
                     //print("duplicate code postal for \(ville.codePostal)")
-                } else {
-                villesByCodePostal[ville.codePostal] = ville
                 }
+                villesByCodePostal[ville.codePostal] = ville
             } else {
                 throw VilleLoaderError.invalidLine(index: index + 1)
             }
@@ -45,5 +45,27 @@ public class VilleLoader {
     public subscript(index: String) -> Ville? {
         return villesByCodePostal[index]
     }
+}
+
+public extension VilleLoader {
     
+    func loadVillesSimple(path: String) throws{
+        let fileManager = FileManager.default
+        guard fileManager.fileExists(atPath: path) else {
+            throw VilleLoaderError.nofile(path: path)
+        }
+        
+        let csvContent = try String(contentsOfFile: path)
+        
+        var lines = csvContent.components(separatedBy: "\n")
+        lines.removeFirst() // eat header line
+        
+        for (index, line) in lines.enumerated() where !line.isEmpty {
+            if let ville = Ville(fromCsvLine: line) {
+                villes.append(ville)
+            } else {
+                throw VilleLoaderError.invalidLine(index: index + 1)
+            }
+        }
+    }
 }

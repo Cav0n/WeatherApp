@@ -8,19 +8,13 @@
 
 import UIKit
 
-import WeatherLib
-
 @UIApplicationMain
- class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    let villeLoader = VilleLoader()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let path = Bundle.main.path(forResource: "villes", ofType: "csv")!
-        try! villeLoader.loadVilles(path: path)
         
         return true
     }
