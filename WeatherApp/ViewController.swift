@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     let villeLoader = VilleLoader()
     var villes : [Ville] = []
+    var weatherDetailViewController: WeatherDetailViewController? = nil
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,10 +32,23 @@ class ViewController: UIViewController {
                 villes.append(ville)
             }
         })
+        
+        if let split = splitViewController {
+            let controllers = split.viewControllers
+            weatherDetailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? WeatherDetailViewController
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: (Any)?) {
-        (segue.destination as! WeatherDetailViewController).ville = villes[tableView.indexPathForSelectedRow!.row]
+        if segue.identifier == "showDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let ville = villes[indexPath.row]
+                let controller = (segue.destination as! UINavigationController).topViewController as! WeatherDetailViewController
+                controller.ville = ville
+                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                controller.navigationItem.leftItemsSupplementBackButton = true
+            }
+        }
     }
 }
 
@@ -53,7 +67,7 @@ extension ViewController : UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "GoToDetailSegue", sender: self)
+        self.performSegue(withIdentifier: "showDetail", sender: self)
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
 }

@@ -32,6 +32,7 @@
 		BAA3193C2293E14400E847EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAA3193A2293E14400E847EC /* LaunchScreen.storyboard */; };
 		BAA319472293E14400E847EC /* WeatherAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA319462293E14400E847EC /* WeatherAppTests.swift */; };
 		BAA319522293E41C00E847EC /* villes.csv in Resources */ = {isa = PBXBuildFile; fileRef = BAA319512293E41C00E847EC /* villes.csv */; };
+		E2779DF1229D6D4500374325 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2779DF0229D6D4500374325 /* WeatherTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		BAA319462293E14400E847EC /* WeatherAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppTests.swift; sourceTree = "<group>"; };
 		BAA319482293E14400E847EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BAA319512293E41C00E847EC /* villes.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = villes.csv; sourceTree = "<group>"; };
+		E2779DF0229D6D4500374325 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 				BAA319332293E14200E847EC /* ViewController.swift */,
 				17C62EDD229C57BD0054648E /* VilleTableViewCell.swift */,
 				174326CA229C60ED00A9DBB6 /* WeatherDetailViewController.swift */,
+				E2779DF0229D6D4500374325 /* WeatherTableViewCell.swift */,
 				BAA319352293E14200E847EC /* Main.storyboard */,
 				BAA319382293E14400E847EC /* Assets.xcassets */,
 				BAA3193A2293E14400E847EC /* LaunchScreen.storyboard */,
@@ -440,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2779DF1229D6D4500374325 /* WeatherTableViewCell.swift in Sources */,
 				BAA319342293E14200E847EC /* ViewController.swift in Sources */,
 				BAA319322293E14200E847EC /* AppDelegate.swift in Sources */,
 				174326CB229C60ED00A9DBB6 /* WeatherDetailViewController.swift in Sources */,
