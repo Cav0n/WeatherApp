@@ -11,7 +11,7 @@ import Foundation
 public class WeatherService: NSObject {
     
     fileprivate static func startWeatherForVille(_ ville: Ville, completionHandler: @escaping (Weather?, Error?) -> Void) {
-        guard let url = URL(string: "https://api.darksky.net/forecast/8b24b1d4d6d535727cd03c4cc0d04350/\(ville.latitude),\(ville.longitude)") else {
+        guard let url = URL(string: "https://api.darksky.net/forecast/8b24b1d4d6d535727cd03c4cc0d04350/\(ville.latitude),\(ville.longitude)?lang=fr") else {
             fatalError("unable to generate URL for weather of \(ville)")
         }
         let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
